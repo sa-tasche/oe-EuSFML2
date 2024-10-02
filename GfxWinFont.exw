@@ -29,23 +29,18 @@ end if
 atom text = sfText_create()
 sfText_setString(text,"Hello World")
 sfText_setFont(text,font)
-sfText_setCharacterSize(text,30)
-sfText_move(text,w / 2, h / 2)
-
-atom c = sfColor_fromRGBA(255,255,255,255) --you will need sfColor_fromRGB or fromRGBA to
---change the color!
-sfText_setColor(text,c)
+sfText_setCharacterSize(text,50)
 
 while sfRenderWindow_isOpen(win) do
 
   while sfRenderWindow_pollEvent(win,event) do
     
-    atom eventType = peek4s(event)
-    atom code = peek4s(event+4)
-    atom alt = peek4s(event+8)
-    atom control = peek4s(event+14)
-    atom shift = peek4s(event+16)
-    atom system = peek4s(event+20)
+    integer eventType = peek4s(event)
+    integer code = peek4s(event+4)
+    integer alt = peek4s(event+8)
+    integer control = peek4s(event+12)
+    integer shift = peek4s(event+16)
+    integer system = peek4s(event+20)
     
     if eventType = sfEvtClosed then
 		sfRenderWindow_close(win)
@@ -64,4 +59,4 @@ end while
 sfText_destroy(text)
 sfFont_destroy(font)
 sfRenderWindow_destroy(win)
-­36.19
+­53.22
